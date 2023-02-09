@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace GermanNumbers
 {
@@ -16,12 +12,12 @@ namespace GermanNumbers
         }
 
         const int base10 = 10;
-        const char oneSpace = ' ';
+        //const char oneSpace = ' ';
 
         Dictionary<int, string>
             numbers = new Dictionary<int, string>();
 
-        public void initNumbers()
+        private void initNumbers()
         {
             numbers.Clear();
 
@@ -60,43 +56,70 @@ namespace GermanNumbers
             //numbers.Add()
         }
 
-        public string translateNumbertoGreman(int number)
+        private string threeDigits(int number)
         {
-
             if (number < 100)
             {
-                return lessThan100(number);    
+                return lessThan100(number);
             }
 
             return hundert(number);
+        }
 
 
-            //int temp = 0;
+        private const string thausand = "thausand";
+        public string translateNumbertoGreman(int number)
+        {
 
-            //while(number > 0)
-            //{
-            //    temp = number % base10;
-            //    number /= base10;
+            var result = new StringBuilder();
 
-            //    result.Append(numbers.GetValueOrDefault(temp));
-            //    result.Append(oneSpace);
-            //}
+            if (number >= 1000)
+            {
+                result.Append(threeDigits(number / 1000));
+                result.Append(thausand);
+                number %= 1000;
+            }
+
+            if (number != 0)
+            {
+                if (number < 100)
+                {
+                    result.Append(lessThan100(number));    
+                }
+                else
+                {
+                    result.Append(hundert(number));
+                }
+            }
+
+
+            return result.ToString();
 
         }
 
 
-        private string hundertStr = "hundert";
-        private string und = "und";
+        private const string hundertStr = "hundert";
+        private const string und = "und";
 
         private string hundert(int number)
         {
             var result = new StringBuilder();
 
-            var hundredsDigit = number / 100;
+            if (number >= 1000)
+            {
+                number %= 100;
+            }
 
-            var toInsert = (hundredsDigit == 1) ? "ein" : numbers[hundredsDigit];
-            result.Append(toInsert + hundertStr);
-            result.Append(lessThan100(number));
+            var hundredsDigit = number / 100; //todo: remove number
+
+            var toInsert = (hundredsDigit == 1) ? "ein" : numbers[hundredsDigit]; //todo: remove number and string
+                result.Append(toInsert + hundertStr);
+
+            number %= 100;
+            if (number != 0)
+            {
+                result.Append(lessThan100(number));
+            }
 
             return result.ToString();
         }
@@ -105,20 +128,20 @@ namespace GermanNumbers
         private string lessThan100(int number)
         {
             var result = new StringBuilder();
-            var tempNum = (number % 100);
+            var tempNum = (number % 100); //todo: remove number
 
 
-            if (tempNum > 20)
+            if (tempNum > 20)//todo: remove number
             {
-                var OnesDigit = number % 10;
-                if (OnesDigit != 0)
+                var OnesDigit = number % base10;
+                if (OnesDigit != 0)//todo: remove number
                 {
                     result.Append(numbers[OnesDigit]);
                     result.Append(und);
 
                 }
             
-                var TensDigit = (tempNum / 10) * 10;
+                var TensDigit = (tempNum / base10) * base10;
 
                 result.Append(numbers[TensDigit]);               
             }
