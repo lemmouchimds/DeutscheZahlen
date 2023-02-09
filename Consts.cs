@@ -27,7 +27,7 @@ namespace GermanNumbers
 
             numbers = new Dictionary<int, string>()
             {
-                {0,"nul"},
+                {0,"null"},
                 {1,"eins"},
                 {2,"zwei"},
                 {3,"drei"},
@@ -51,10 +51,10 @@ namespace GermanNumbers
                 {30, "driessig" },
                 {40, "vierzig" },
                 {50, "funfzig"},
-                {60, "sechszig" },
+                {60, "sechzig" },
                 {70, "siebzig" },
                 {80, "achtzig"},
-                {90, "neinzig" }
+                {90, "neunzig" }
             };
 
             //numbers.Add()
@@ -62,21 +62,73 @@ namespace GermanNumbers
 
         public string translateNumbertoGreman(int number)
         {
-            var result = new StringBuilder();
-            int temp = 0;
 
-            while(number > 0)
+            if (number < 100)
             {
-                temp = number % base10;
-                number /= base10;
-
-                result.Append(numbers.GetValueOrDefault(temp));
-                result.Append(oneSpace);
+                return lessThan100(number);    
             }
+
+            return hundert(number);
+
+
+            //int temp = 0;
+
+            //while(number > 0)
+            //{
+            //    temp = number % base10;
+            //    number /= base10;
+
+            //    result.Append(numbers.GetValueOrDefault(temp));
+            //    result.Append(oneSpace);
+            //}
+
+        }
+
+
+        private string hundertStr = "hundert";
+        private string und = "und";
+
+        private string hundert(int number)
+        {
+            var result = new StringBuilder();
+
+            var hundredsDigit = number / 100;
+
+            var toInsert = (hundredsDigit == 1) ? "ein" : numbers[hundredsDigit];
+            result.Append(toInsert + hundertStr);
+            result.Append(lessThan100(number));
 
             return result.ToString();
         }
 
 
+        private string lessThan100(int number)
+        {
+            var result = new StringBuilder();
+            var tempNum = (number % 100);
+
+
+            if (tempNum > 20)
+            {
+                var OnesDigit = number % 10;
+                if (OnesDigit != 0)
+                {
+                    result.Append(numbers[OnesDigit]);
+                    result.Append(und);
+
+                }
+            
+                var TensDigit = (tempNum / 10) * 10;
+
+                result.Append(numbers[TensDigit]);               
+            }
+            else
+            {
+                result.Append(numbers[tempNum]);
+            }
+
+
+            return result.ToString();
+        }
     }
 }
