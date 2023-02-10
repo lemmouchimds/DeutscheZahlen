@@ -3,7 +3,7 @@
 namespace GermanNumbers
 {
 
-    internal class Consts
+    public class Consts
     {
 
         public Consts()
@@ -158,5 +158,71 @@ namespace GermanNumbers
 
             return result.ToString();
         }
+    
+        public NumberText Generate(int min = 0, int max = 100)
+        {
+            var rand = new Random();
+            var temp = rand.Next(min, max);
+
+            return new NumberText(temp, translateNumbertoGreman(temp));
+        }
+
+        public NumberText Translate(int num)
+        {
+            return new NumberText(num, translateNumbertoGreman(num));
+        }
+    }
+
+
+    public class NumberText
+    {
+        public int number { get; set; }
+        public string text { get; set; }
+
+        public NumberText()
+        {
+
+        }
+
+        public NumberText(int number, string text)
+        {
+            this.number = number;
+            this.text = text;
+        }
+        public static bool equal(NumberText a, NumberText b)
+        {
+            return a.number == b.number && string.Equals(a.text,b.text);
+        }
+
+        // override object.Equals
+        //public override bool Equals(object obj)
+        //{
+        //    var temp = (NumberText)obj;
+        //    return this.text.Equals(temp.text) && this.number == temp.number;
+
+        //    //       
+        //    // See the full list of guidelines at
+        //    //   http://go.microsoft.com/fwlink/?LinkID=85237  
+        //    // and also the guidance for operator== at
+        //    //   http://go.microsoft.com/fwlink/?LinkId=85238
+        //    //
+
+        //    if (obj == null || GetType() != obj.GetType())
+        //    {
+        //        return false;
+        //    }
+
+        //    // TODO: write your implementation of Equals() here
+            
+        //    return base.Equals(obj);
+        //}
+
+        //// override object.GetHashCode
+        //public override int GetHashCode()
+        //{
+        //    // TODO: write your implementation of GetHashCode() here
+        //    //throw new NotImplementedException();
+        //    return base.GetHashCode();
+        //}
     }
 }

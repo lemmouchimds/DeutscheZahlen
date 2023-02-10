@@ -13,11 +13,9 @@ namespace GermanNumbers
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var rand = new Random();
-            var temp = rand.Next(min, max);
+            var consttt = new Consts();
+            var temp = consttt.Generate(min, max);
             updateNumberAndStringNumber(temp);
-            tbNumber.Clear();
-            //lblString.Text = constssss.translateNumbertoGreman(115);
         }
 
         private void bnTranslate_Click(object sender, EventArgs e)
@@ -26,24 +24,29 @@ namespace GermanNumbers
 
             if (int.TryParse(tbNumber.Text, out number))
             {
-                updateNumberAndStringNumber(number);
+                var translated = new Consts();
+                updateNumberAndStringNumber(translated.Translate(number));
             }
 
             tbNumber.Clear();
             bnGenerate.Enabled = true;
         }
 
-
-        private void updateNumberAndStringNumber(int number)
+        private void updateNumberAndStringNumber(NumberText number)
         {
-            lblNumber.Text = number.ToString();
-            var constssss = new Consts();
-            lblString.Text = constssss.translateNumbertoGreman(number);
+            lblNumber.Text = number.number.ToString();
+            lblString.Text = number.text;
         }
 
         private void tbNumber_TextChanged(object sender, EventArgs e)
         {
             bnGenerate.Enabled = false;
+        }
+
+        private void challengeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new Challenge();
+            form.Show();
         }
     }
 }
