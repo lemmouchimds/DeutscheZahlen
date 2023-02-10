@@ -37,10 +37,13 @@
             // 
             // lblNumber
             // 
+            this.lblNumber.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblNumber.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblNumber.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblNumber.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNumber.Location = new System.Drawing.Point(12, 9);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(104, 54);
+            this.lblNumber.Size = new System.Drawing.Size(119, 54);
             this.lblNumber.TabIndex = 0;
             this.lblNumber.Text = "Nummer";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -49,6 +52,8 @@
             // 
             this.lblString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblString.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblString.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblString.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblString.Location = new System.Drawing.Point(137, 9);
             this.lblString.Name = "lblString";
@@ -59,13 +64,14 @@
             // 
             // bnGenerate
             // 
+            this.bnGenerate.BackColor = System.Drawing.SystemColors.Info;
             this.bnGenerate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bnGenerate.Location = new System.Drawing.Point(12, 92);
             this.bnGenerate.Name = "bnGenerate";
             this.bnGenerate.Size = new System.Drawing.Size(86, 32);
             this.bnGenerate.TabIndex = 2;
             this.bnGenerate.Text = "Generate";
-            this.bnGenerate.UseVisualStyleBackColor = true;
+            this.bnGenerate.UseVisualStyleBackColor = false;
             this.bnGenerate.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbNumber
@@ -75,19 +81,23 @@
             this.tbNumber.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNumber.Location = new System.Drawing.Point(230, 89);
             this.tbNumber.Name = "tbNumber";
+            this.tbNumber.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbNumber.Size = new System.Drawing.Size(682, 35);
             this.tbNumber.TabIndex = 3;
+            this.tbNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbNumber.TextChanged += new System.EventHandler(this.tbNumber_TextChanged);
             // 
             // bnTranslate
             // 
             this.bnTranslate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bnTranslate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.bnTranslate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bnTranslate.Location = new System.Drawing.Point(941, 92);
             this.bnTranslate.Name = "bnTranslate";
             this.bnTranslate.Size = new System.Drawing.Size(86, 32);
             this.bnTranslate.TabIndex = 4;
             this.bnTranslate.Text = "Translate";
-            this.bnTranslate.UseVisualStyleBackColor = true;
+            this.bnTranslate.UseVisualStyleBackColor = false;
             this.bnTranslate.Click += new System.EventHandler(this.bnTranslate_Click);
             // 
             // Form1

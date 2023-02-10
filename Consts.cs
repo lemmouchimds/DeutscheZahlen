@@ -28,7 +28,7 @@ namespace GermanNumbers
                 {2,"zwei"},
                 {3,"drei"},
                 {4,"vier"},
-                {5,"funf"},
+                {5,"fünf"},
                 {6,"sechs"},
                 {7,"sieben"},
                 {8,"acht"},
@@ -38,15 +38,15 @@ namespace GermanNumbers
                 {12,"zwolf"},
                 {13,"dreizehn"},
                 {14,"vierzehn"},
-                {15,"funfzehn"},
+                {15,"fünfzehn"},
                 {16,"sechzehn"},
                 {17,"siebzehn"},
                 {18,"achtzehn"},
                 {19,"neunzehn"},
-                {20, "zwantig" },
-                {30, "driessig" },
+                {20, "zwanzig" },
+                {30, "drießig" },
                 {40, "vierzig" },
-                {50, "funfzig"},
+                {50, "fünfzig"},
                 {60, "sechzig" },
                 {70, "siebzig" },
                 {80, "achtzig"},
@@ -70,6 +70,10 @@ namespace GermanNumbers
         private const string thausand = "thausand";
         public string translateNumbertoGreman(int number)
         {
+            if (number == 0)
+            {
+                return numbers[number];
+            }
 
             var result = new StringBuilder();
 
@@ -79,6 +83,7 @@ namespace GermanNumbers
                 result.Append(thausand);
                 number %= 1000;
             }
+            
 
             if (number != 0)
             {

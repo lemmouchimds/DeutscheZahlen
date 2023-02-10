@@ -2,6 +2,10 @@ namespace GermanNumbers
 {
     public partial class Form1 : Form
     {
+
+        private int max = 1000;
+        private int min = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -10,8 +14,9 @@ namespace GermanNumbers
         private void button1_Click(object sender, EventArgs e)
         {
             var rand = new Random();
-            var temp = rand.Next(1000);
+            var temp = rand.Next(min, max);
             updateNumberAndStringNumber(temp);
+            tbNumber.Clear();
             //lblString.Text = constssss.translateNumbertoGreman(115);
         }
 
@@ -23,6 +28,9 @@ namespace GermanNumbers
             {
                 updateNumberAndStringNumber(number);
             }
+
+            tbNumber.Clear();
+            bnGenerate.Enabled = true;
         }
 
 
@@ -33,5 +41,9 @@ namespace GermanNumbers
             lblString.Text = constssss.translateNumbertoGreman(number);
         }
 
+        private void tbNumber_TextChanged(object sender, EventArgs e)
+        {
+            bnGenerate.Enabled = false;
+        }
     }
 }
