@@ -18,6 +18,16 @@ namespace GermanNumbers
         public Challenge()
         {
             InitializeComponent();
+            ApplyApplicationIcon();
+        }
+
+        private void ApplyApplicationIcon()
+        {
+            var appIcon = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            if (appIcon is not null)
+            {
+                Icon = appIcon;
+            }
         }
 
 

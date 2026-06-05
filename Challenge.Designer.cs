@@ -121,7 +121,7 @@
             this.MaximumSize = new System.Drawing.Size(816, 296);
             this.MinimumSize = new System.Drawing.Size(816, 296);
             this.Name = "Challenge";
-            this.ShowIcon = false;
+            this.ShowIcon = true;
             this.Text = "Challenge";
             this.ResumeLayout(false);
             this.PerformLayout();

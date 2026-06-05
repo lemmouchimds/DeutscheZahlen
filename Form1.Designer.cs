@@ -134,7 +134,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(624, 201);
             this.Name = "Form1";
-            this.ShowIcon = false;
+            this.ShowIcon = true;
             this.Text = "Deutsch Zehlen";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

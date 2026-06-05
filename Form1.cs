@@ -9,6 +9,16 @@ namespace GermanNumbers
         public Form1()
         {
             InitializeComponent();
+            ApplyApplicationIcon();
+        }
+
+        private void ApplyApplicationIcon()
+        {
+            var appIcon = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            if (appIcon is not null)
+            {
+                Icon = appIcon;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

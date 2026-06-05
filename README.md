@@ -1,4 +1,8 @@
-# DeutscheZahlen
+<p align="center">
+  <img src="logo.png" alt="DeutschZahlen logo" width="220">
+</p>
+
+# DeutschZahlen
 
 A small Windows Forms app for practicing German number words.
 
@@ -47,6 +51,8 @@ dotnet run --project .\GermanNumbers.csproj
 .
 |-- GermanNumbers.sln
 |-- GermanNumbers.csproj
+|-- logo.png
+|-- logo.ico
 |-- Program.cs
 |-- Form1.cs
 |-- Form1.Designer.cs
@@ -56,6 +62,8 @@ dotnet run --project .\GermanNumbers.csproj
 ```
 
 - `Program.cs` starts the Windows Forms application.
+- `logo.png` is the README logo image.
+- `logo.ico` is generated from `logo.png` and used as the Windows app icon.
 - `Form1.cs` contains the main generator and translator window behavior.
 - `Challenge.cs` contains the practice/challenge window behavior.
 - `Consts.cs` contains the number-to-text conversion logic and the `NumberText` model.
